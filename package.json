@@ -1,0 +1,27 @@
+{
+  "name": "best-goods-telegram-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tox14/best-goods-telegram-bot.git"
+  },
+  "author": "Anton Chernookiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tox14/best-goods-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/tox14/best-goods-telegram-bot#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-telegram-bot-api": "^0.54.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
