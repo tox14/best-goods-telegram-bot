@@ -17,6 +17,12 @@ const start = async () => {
     await sequalize.authenticate();
     await sequalize.sync();
 
+    bot.setMyCommands([
+      { command: "/start", description: "Start monitoring" },
+      { command: "/settings", description: "Settings of goods monitoring" },
+      { command: "/stop", description: "Stop monitoring" },
+    ]);
+
     bot.on("message", async (msg) => {
       switch (msg.text) {
         case "/start":
