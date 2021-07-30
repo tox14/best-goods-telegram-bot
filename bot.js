@@ -1,6 +1,6 @@
 const TelegramApi = require("node-telegram-bot-api");
 const sequalize = require("./database");
-const { StartView, WrongCommandView, StopView } = require("./views");
+const { StartView, WrongCommandView, StopView, GoodsView } = require("./views");
 
 const token = process.env.TOKEN;
 let bot;
@@ -30,6 +30,9 @@ const start = async () => {
           break;
         case "/stop":
           await StopView(bot, msg);
+          break;
+        case "/test":
+          await GoodsView(bot, msg);
           break;
         default:
           await WrongCommandView(bot, msg);

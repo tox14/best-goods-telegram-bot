@@ -1,10 +1,10 @@
 module.exports = async (bot, msg) => {
   const options = {
     parse_mode: "markdown",
-    reply_markup: JSON.stringify({
-      keyboard: [["⚙️ Settings"]],
-      resize_keyboard: true,
-    }),
+    // reply_markup: JSON.stringify({
+    //   keyboard: [["⚙️ Settings"]],
+    //   resize_keyboard: true,
+    // }),
   };
 
   bot.sendMessage(
