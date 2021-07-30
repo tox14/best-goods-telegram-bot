@@ -1,11 +1,22 @@
 require("dotenv").config();
 
-const TelegramApi = require("node-telegram-bot-api");
+const express = require("express");
+const bot = require("./bot");
 
-const token = process.env.TOKEN;
+const app = express();
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-const bot = new TelegramApi(token, { polling: true });
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log("Web server started on port: " + port);
+});
 
-bot.on("message", (message) => {
-  bot.sendMessage(message.chat.id, `Your message: ${message.text}`);
+app.post("/" + bot.token, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
 });
