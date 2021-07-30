@@ -1,5 +1,6 @@
 const TelegramApi = require("node-telegram-bot-api");
 const sequalize = require("./database");
+const { StartView } = require("./views");
 
 const token = process.env.TOKEN;
 let bot;
@@ -17,7 +18,13 @@ const start = async () => {
     await sequalize.sync();
 
     bot.on("message", async (msg) => {
-      bot.sendMessage(msg.chat.id, `Your message: ${msg.text}`);
+      switch (msg.text) {
+        case "/start":
+          await StartView(bot, msg);
+          break;
+        default:
+          break;
+      }
     });
 
     bot.on("error", (err) => console.error("error", err));
