@@ -1,6 +1,7 @@
 const TelegramApi = require("node-telegram-bot-api");
 const sequalize = require("./database");
 const { StartView, WrongCommandView, StopView, GoodsView } = require("./views");
+const parseGoods = require("./parseGoods");
 
 const token = process.env.TOKEN;
 let bot;
@@ -16,6 +17,9 @@ const start = async () => {
     // Connect to database
     await sequalize.authenticate();
     await sequalize.sync();
+
+    // Start parsing goods
+    parseGoods(bot);
 
     bot.setMyCommands([
       { command: "/start", description: "Start monitoring" },

@@ -15,6 +15,14 @@ const User = sequelize.define("user", {
     type: DataTypes.BOOLEAN,
     defaultValue: true,
   },
+  amazon: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
+  ebay: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
 });
 
 module.exports = User;
