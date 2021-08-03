@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "node-telegram-bot-api": "^0.54.0",
     "pg": "^8.7.1",
+    "puppeteer": "^10.1.0",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
