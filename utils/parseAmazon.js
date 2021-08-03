@@ -33,6 +33,15 @@ module.exports = async () => {
           discount = discountText.split(": ")[1].split(" ")[1] + " off";
         }
 
+        let rating = "";
+        const ratingText = $(el)
+          .find("[data-testid='review-stars']")
+          .attr("class");
+        if (ratingText) {
+          const stars = ratingText.split("a-star-mini-")[1];
+          rating = stars ? stars[0] : "";
+        }
+
         goods.push({
           store,
           url,
@@ -40,6 +49,7 @@ module.exports = async () => {
           image,
           price,
           discount,
+          rating,
         });
       }
     });

@@ -3,7 +3,15 @@ module.exports = (bot, chatId, goods) => {
     return;
   }
 
-  let caption = `*${goods.title}*\n\n🏪 Store: *${goods.store}*\n🏷️ Price: *${goods.price}*`;
+  let caption = `*${goods.title}*\n`;
+  caption += `\n🏪 Store: *${goods.store}*`;
+
+  if (goods.rating) {
+    caption += `\n⭐ Stars: *${goods.rating}/5*`;
+  }
+
+  caption += `\n🏷️ Price: *${goods.price}*`;
+
   if (goods.discount) {
     caption += `\n💥 Discount: *${goods.discount}*`;
   }

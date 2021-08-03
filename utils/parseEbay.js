@@ -8,7 +8,7 @@ module.exports = async () => {
 
     const response = await axios.get("https://www.ebay.com/globaldeals", {
       headers: {
-        "Accept-Language": "en-US,en;",
+        "Accept-Language": "en-US,en",
       },
     });
     const $ = cheerio.load(response.data);

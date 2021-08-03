@@ -26,6 +26,9 @@ const Goods = sequelize.define("goods", {
   discount: {
     type: DataTypes.STRING,
   },
+  rating: {
+    type: DataTypes.STRING,
+  },
 });
 
 module.exports = Goods;
