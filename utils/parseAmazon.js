@@ -22,7 +22,7 @@ module.exports = async () => {
         if (urlText.includes("slredirect")) {
           url = decodeURIComponent(urlText.split("url=")[1]);
         }
-        url = url.split("?")[0];
+        url = url.split("?")[0].slice(0, -1);
 
         const title = $(el).find(".a-link-normal.a-color-base > div").text();
         const image = $(el).find(".a-image-container img").attr("src");

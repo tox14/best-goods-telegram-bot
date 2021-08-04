@@ -16,7 +16,7 @@ module.exports = async () => {
     $("[data-listing-id]").each((_, el) => {
       let url = $(el).find(".dne-itemtile-detail > a").attr("href");
       if (url && url.split("?")[0]) {
-        url = url.split("?")[0];
+        url = url.split("?")[0].slice(0, -1);
       }
 
       const title = $(el).find(".dne-itemtile-title").attr("title");
