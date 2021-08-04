@@ -14,7 +14,11 @@ module.exports = async () => {
     const $ = cheerio.load(response.data);
 
     $("[data-listing-id]").each((_, el) => {
-      const url = $(el).find(".dne-itemtile-detail > a").attr("href");
+      let url = $(el).find(".dne-itemtile-detail > a").attr("href");
+      if (url && url.split("?")[0]) {
+        url = url.split("?")[0];
+      }
+
       const title = $(el).find(".dne-itemtile-title").attr("title");
       const image =
         $(el).find("img").attr("data-config-src") ||

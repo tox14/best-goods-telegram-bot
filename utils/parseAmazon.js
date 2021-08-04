@@ -22,13 +22,16 @@ module.exports = async () => {
         if (urlText.includes("slredirect")) {
           url = decodeURIComponent(urlText.split("url=")[1]);
         }
+        url = url.split("?")[0];
 
         const title = $(el).find(".a-link-normal.a-color-base > div").text();
         const image = $(el).find(".a-image-container img").attr("src");
         const price = $(el).find("[data-a-size='l']").text().split(": ")[1];
 
         let discount = "";
-        const discountText = $(el).find(".a-spacing-micro > span").text();
+        const discountText = $(el)
+          .find(".a-spacing-micro > span.a-size-small")
+          .text();
         if (discountText) {
           discount = discountText.split(": ")[1].split(" ")[1] + " off";
         }
